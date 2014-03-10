@@ -14,10 +14,4 @@ for db_rule in db_rules:
 	rule.protocol = db_rule.protocol
 	target = iptc.Target(rule, db_rule.jump)
 	rule.target = target
-	chain.insert_rule(rule)
-
-
-
-
-
-
+	chain.insert_rule(rule)	
