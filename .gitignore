@@ -1,3 +1,6 @@
 palisade_firewall.sublime-project
 palisade_firewall.sublime-workspace
 *.pyc
+.project
+.pydevproject
+.settings
