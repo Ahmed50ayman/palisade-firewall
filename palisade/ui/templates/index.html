@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html ng-app="palisadeFirewallApp">
 <head>
     <title>Palisade-Firewall</title>
@@ -8,8 +7,21 @@
 </head>
 <body ng-app="palisadeFirewallApp">
 
-<div ng-controller="IPTRuleListCtrl">Hello</div>
 <script src="static/js/services.js"></script>
 <script src="static/js/controllers.js"></script>
+
+<div ng-controller="IPTRuleListCtrl">
+    <table>
+        <tr ng-repeat="rule in my_rules">
+            <td>{{rule.id}}</td>
+            <td>{{rule.source}}</td>
+            <td>{{rule.destination}}</td>
+            <td>{{rule.protocol}}</td>
+            <td>{{rule.jump}}</td>
+        </tr>
+    </table>
+    <span>{{my_rules.rule}}</span>
+</div>
+
 </body>
 </html>
