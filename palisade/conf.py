@@ -25,6 +25,10 @@ class PalisadeConfig():
         self.populate_variables()
     
     def init_variables(self):
+        """
+
+        :type self: object
+        """
         self.db = Database()
         self.wpump = Wpump()
         
