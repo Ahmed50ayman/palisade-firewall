@@ -13,4 +13,11 @@ palisadeFirewallApp.controller('IPTRuleListCtrl', ['$resource', '$scope', 'IPTRu
     $scope.my_rules = rulesCollection.query();
     console.log($scope.my_rules);
     $scope.jopa = 'JOPA';
+    var rule = new IPTRule();
+    rule.protocol = 'tcp';
+    rule.source = '10.50.50.1';
+    rule.destination = '10.50.50.254';
+    rule.jump = 'DROP';
+    rule.$save();
+//    IPTRule.$delete({id: 1});
 }]);

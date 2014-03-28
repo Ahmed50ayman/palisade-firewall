@@ -5,3 +5,4 @@ palisade_firewall.sublime-workspace
 .pydevproject
 .settings
 .idea
+palisade/ui/static/lib
