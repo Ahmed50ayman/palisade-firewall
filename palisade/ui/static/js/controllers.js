@@ -34,6 +34,8 @@ palisadeControllers.controller('IPTRuleAddCtrl', ['$resource', '$scope', '$locat
         $scope.rule.destination = rule.destination;
         $scope.rule.protocol = rule.protocol;
         $scope.rule.jump = rule.jump;
+//        $scope.rule.ipranges = [];
+        $scope.rule.ipranges = [{rule_id: 2, src_range: '10.50.50.1', dst_range: '10.50.50.199'}];
         $scope.rule.$save();
         $location.path('#/rules');
     }
