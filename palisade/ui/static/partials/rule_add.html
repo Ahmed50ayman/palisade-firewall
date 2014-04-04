@@ -1,0 +1,40 @@
+<span class="h2 center-block">Add new rule</span>
+
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <label for="inputSource" class="col-sm-2 control-label">Source</label>
+        <div class="col-sm-2">
+            <input type="text" class="form-control" id="inputSource" placeholder="Source" ng-model="rule.source">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputDestination" class="col-sm-2 control-label">Destination</label>
+        <div class="col-sm-2">
+            <input type="text" class="form-control" id="inputDestination" placeholder="Destination" ng-model="rule.destination">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="selectProtocol" class="col-sm-2 control-label">Protocol</label>
+        <div class="col-sm-2">
+            <select  class="form-control" id="selectProtocol" ng-model="rule.protocol">
+                <option value="tcp">tcp</option>
+                <option value="udp">udp</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="selectJump" class="col-sm-2 control-label">Jump</label>
+        <div class="col-sm-2">
+            <select  class="form-control" id="selectJump" ng-model="rule.jump">
+                <option value="DROP">DROP</option>
+                <option value="ACCEPT">ACCEPT</option>
+            </select>
+
+        </div>
+    </div>
+
+    <button class="btn btn-primary" ng-click="add(rule)">Save</button>
+</form>

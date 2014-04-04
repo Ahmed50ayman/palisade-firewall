@@ -1,8 +1,12 @@
 /**
  * Created by bova on 17.03.14.
  */
-var palisadeFirewallApp = angular.module('palisadeFirewallApp', ['iptServices', 'ngResource', 'ui.bootstrap']);
-palisadeFirewallApp.controller('IPTRuleListCtrl', ['$resource', '$scope', 'IPTRule', function ($resource, $scope, IPTRule) {
+/* Controllers */
+
+
+var palisadeControllers = angular.module('palisadeControllers', []);
+
+palisadeControllers.controller('IPTRuleListCtrl', ['$resource', '$scope', 'IPTRule', function ($resource, $scope, IPTRule) {
 //    $scope.ipt_rules = IPTRule.query(function(){});
     $scope.orderProp = 'id';
 
@@ -16,19 +20,21 @@ palisadeFirewallApp.controller('IPTRuleListCtrl', ['$resource', '$scope', 'IPTRu
         $scope.showTable($scope.page_number);
     }
     $scope.my_rules = IPTRule.query({page: 2});
-    var rule = new IPTRule();
-    rule.protocol = 'tcp';
-    rule.source = '10.50.50.1';
-    rule.destination = '10.50.50.254';
-    rule.jump = 'DROP';
-    rule.$save();
-    $scope.rule2 = IPTRule.get({id: 26});
+
+//    $scope.rule2 = IPTRule.get({id: 26});
 }]);
 
-palisadeFirewallApp.controller('AddUserCtrl', ['$scope', '$modal', function($scope, $modal) {
-    $scope.open = function() {
-        var modalIntance = $modal.open({
-            templateUrl: 'AddUserContent.html'
-        });
+palisadeControllers.controller('IPTRuleAddCtrl', ['$resource', '$scope', '$location', 'IPTRule', function ($resource, $scope, $location, IPTRule) {
+    $scope.rule = new IPTRule();
+    $scope.rule.protocol = 'tcp';
+    $scope.rule.jump = 'DROP';
+
+    $scope.add = function(rule) {
+        $scope.rule.source = rule.source;
+        $scope.rule.destination = rule.destination;
+        $scope.rule.protocol = rule.protocol;
+        $scope.rule.jump = rule.jump;
+        $scope.rule.$save();
+        $location.path('#/rules');
     }
 }]);

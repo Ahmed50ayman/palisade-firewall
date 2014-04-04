@@ -1,0 +1,26 @@
+<a class="btn btn-primary" ng-href="#/rules/add">Add</a>
+
+<div ng-controller="IPTRuleListCtrl">
+    <input ng-model="page_number">
+    <button class="btn" ng-click="showTable(page_number)">Go</button>
+    <table class="table table-striped table-bordered">
+        <tr ng-repeat="rule in my_rules">
+            <td>{{rule.id}}</td>
+            <td>{{rule.source}}</td>
+            <td>{{rule.destination}}</td>
+            <td>{{rule.protocol}}</td>
+            <td>{{rule.jump}}</td>
+            <td><button class="btn-small" ng-click="delete_rule(rule.id)">Delete</button></td>
+        </tr>
+        <tr ng-class-odd="true">
+            <td>{{rule2.id}}</td>
+            <td>{{rule2.source}}</td>
+            <td>{{rule2.destination}}</td>
+            <td>{{rule2.protocol}}</td>
+            <td>{{rule2.jump}}</td>
+            <td><button class="btn-small" ng-click="delete_rule(rule.id)">Delete</button></td>
+        </tr>
+    </table>
+    <span>{{my_rules.rule}}</span>
+
+</div>

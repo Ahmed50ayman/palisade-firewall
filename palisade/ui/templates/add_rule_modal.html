@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<div ng-controller="AddUserCtrl">
+    <script type="text/ng-template" id="AddUserContent.html">
+        <div class="modal-header">
+            <h3>Add new user</h3>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal">
+                Source: <input type="text" ng-model="rule.source">
+                Destination: <input type="text" ng-model="rule.destination">
+                Protocol: <input type="text" ng-model="rule.protocol">
+                Jump: <input type="text" ng-model="rule.jump">
+
+                <button class="btn btn-primary" ng-click="add(user)">Save</button>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+
+    <button class="btn btn-default" ng-click="open()">Add User</button>
+</div>
+
+</body>
+</html>
