@@ -6,3 +6,6 @@ palisade_firewall.sublime-workspace
 .settings
 .idea
 palisade/ui/static/lib
+palisade/ui/static/js/bootstrap.js
+palisade/ui/static/fonts/*
+palisade/ui/static/css

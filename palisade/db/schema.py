@@ -26,7 +26,7 @@ class IPT_Rule(Base):
 class IPT_M_IPRange(Base):
     __tablename__ = 'ipt_m_iprange'
     id = Column(Integer, Sequence('ipt_m_iprange_id_seq'), primary_key=True)
-    rule_id = Column(Integer, ForeignKey('ipt_rule.id'))
+    rule_id = Column(Integer, ForeignKey('ipt_rule.id', ondelete='CASCADE'))
     src_range = Column(String(256))
     dst_range = Column(String(256))
 
