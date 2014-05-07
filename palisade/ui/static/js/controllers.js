@@ -28,14 +28,20 @@ palisadeControllers.controller('IPTRuleAddCtrl', ['$resource', '$scope', '$locat
     $scope.rule = new IPTRule();
     $scope.rule.protocol = 'tcp';
     $scope.rule.jump = 'DROP';
+    $scope.rule.ipranges = [];
 
+    $scope.add_iprange = function(){
+        var idx = $scope.rule.ipranges.length;
+        $scope.rule.ipranges[idx] = {rule_id: idx, src_range: '', dst_range: ''};
+    };
     $scope.add = function(rule) {
         $scope.rule.source = rule.source;
         $scope.rule.destination = rule.destination;
         $scope.rule.protocol = rule.protocol;
         $scope.rule.jump = rule.jump;
 //        $scope.rule.ipranges = [];
-        $scope.rule.ipranges = [{rule_id: 2, src_range: '10.50.50.1', dst_range: '10.50.50.199'}];
+//        $scope.rule.ipranges = [{rule_id: 2, src_range: '10.50.50.1', dst_range: '10.50.50.199'}];
+//        $scope.rule.ipranges = rule.ipranges;
         $scope.rule.$save();
         $location.path('#/rules');
     }
