@@ -29,11 +29,18 @@ palisadeControllers.controller('IPTRuleAddCtrl', ['$resource', '$scope', '$locat
     $scope.rule.protocol = 'tcp';
     $scope.rule.jump = 'DROP';
     $scope.rule.ipranges = [];
+    $scope.rule.multiports = [];
 
     $scope.add_iprange = function(){
         var idx = $scope.rule.ipranges.length;
         $scope.rule.ipranges[idx] = {rule_id: idx, src_range: '', dst_range: ''};
     };
+
+    $scope.add_multiport = function() {
+        var idx = $scope.rule.multiports.length;
+        $scope.rule.multiports[idx] = {rule_id: idx, sports:'', dports: ''};
+    };
+
     $scope.add = function(rule) {
         $scope.rule.source = rule.source;
         $scope.rule.destination = rule.destination;

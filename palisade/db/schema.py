@@ -13,6 +13,7 @@ class IPT_Rule(Base):
     destination = Column(String(256))
     jump = Column(String(256))
     ipranges = relationship('IPT_M_IPRange')
+    multiports = relationship('IPT_M_Multiport')
 
     def __init__(self, protocol='tcp', source=None, destination=None, jump='ACCEPT'):
         self.protocol = protocol
@@ -34,6 +35,22 @@ class IPT_M_IPRange(Base):
         self.rule_id = rule_id
         self.src_range = src_range
         self.dst_range = dst_range
+
+    def __repr__(self):
+        pass
+
+class IPT_M_Multiport(Base):
+    __tablename__ = 'ipt_m_multiport'
+    id = Column(Integer, Sequence('ipt_m_multiport_id_seq'), primary_key=True)
+    rule_id = Column(Integer, ForeignKey('ipt_rule.id', ondelete='CASCADE'))
+    sports = Column(String(256))
+    dports = Column(String(256))
+    # TODO: add ports parameter
+
+    def __init__(self, rule_id, sports, dports):
+        self.rule_id = rule_id
+        self.sports = sports
+        self.dports = dports
 
     def __repr__(self):
         pass
